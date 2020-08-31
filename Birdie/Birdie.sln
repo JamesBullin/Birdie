@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdieBusiness", "BirdieBusiness\BirdieBusiness.csproj", "{042EA39B-F50F-4F02-9060-5D0DB7730884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdieView", "BirdieView\BirdieView.csproj", "{1757DD2B-F027-4916-8D50-ED11CB6899E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31E0E407-CBF8-429B-9DC9-CEEF7F77AB83}
+	EndGlobalSection
+EndGlobal
