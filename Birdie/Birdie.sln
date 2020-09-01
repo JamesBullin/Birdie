@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdieBusiness", "BirdieBusiness\BirdieBusiness.csproj", "{042EA39B-F50F-4F02-9060-5D0DB7730884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdieView", "BirdieView\BirdieView.csproj", "{1757DD2B-F027-4916-8D50-ED11CB6899E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdieView", "BirdieView\BirdieView.csproj", "{5415A8BC-5433-4E2B-95C7-09522AB2F5C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{042EA39B-F50F-4F02-9060-5D0DB7730884}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1757DD2B-F027-4916-8D50-ED11CB6899E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5415A8BC-5433-4E2B-95C7-09522AB2F5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5415A8BC-5433-4E2B-95C7-09522AB2F5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5415A8BC-5433-4E2B-95C7-09522AB2F5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5415A8BC-5433-4E2B-95C7-09522AB2F5C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
