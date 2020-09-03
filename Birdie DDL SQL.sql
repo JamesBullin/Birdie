@@ -42,3 +42,16 @@ FOREIGN KEY (OfficialColourID) REFERENCES OfficialColour(ID);
 
 ALTER TABLE OfficialColour
 ADD FOREIGN KEY (BasicColourID) REFERENCES BasicColour(ID);
+
+-- Add BasicColours
+
+INSERT INTO BasicColour VALUES ('Black');
+INSERT INTO BasicColour VALUES ('White');
+INSERT INTO BasicColour VALUES ('Red');
+INSERT INTO BasicColour VALUES ('Blue');
+INSERT INTO BasicColour VALUES ('Yellow');
+INSERT INTO BasicColour VALUES ('Orange');
+INSERT INTO BasicColour VALUES ('Purple');
+INSERT INTO BasicColour VALUES ('Green');
+INSERT INTO BasicColour VALUES ('Brown');
+INSERT INTO BasicColour VALUES ('Pink');

@@ -2,7 +2,7 @@
 
 ## Goals
 
-Create an application that can store and display information about minigolf balls. The user interface would allow a user to view the details about each ball, add a new ball to the database, and update the details of each ball. Admin can delete a ball from the database. If time allows, additional features could be implemented including search functionality, comparison, user accounts and collections. The full list of requirements and stretch goals can be found on the Project Board.
+Create a three-tier application that can store and display information about minigolf balls. The user interface would allow a user to view the details about each ball, add a new ball to the database, and update the details of each ball. Admin can delete a ball from the database. If time allows, additional features could be implemented including search functionality, comparison, user accounts and collections. The full list of requirements and stretch goals can be found on the Project Board.
 
 ## Review
 
@@ -13,7 +13,7 @@ Create an application that can store and display information about minigolf ball
 ## Goals:
 
 * Create a solution and three projects for a three-tier application.
-* Implement MVVM using Caliburn.Micro.
+* Implement interface using MVVM (Model View ViewModel) with Caliburn.Micro framwork.
   * Demonstrate it works with dummy data in the ViewModel.
 * Create a minimal database
 * Scaffold the class models in the Models project
@@ -27,7 +27,7 @@ Create an application that can store and display information about minigolf ball
 * A very basic user interface was implemented
 * Scaffolding the database proved difficult.
   * The default project of the package manager console was changed to the Models project, which resolved the problem.
-* Tests for CRUD operations were created
+* Tests for database access (CRUD) operations were created
 
 Did Not Start:
 

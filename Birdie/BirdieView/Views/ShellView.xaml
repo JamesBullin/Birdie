@@ -25,6 +25,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="AddBall" Content="Add Ball" Grid.Column="0" Grid.Row="0"/>
+        <Button x:Name="AddOfficialColour" Content="Add Official Colour" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AddManufacturer" Content="Add Manufacturer" Grid.Column="0" Grid.Row="2"/>
+
         <TextBlock x:Name="BallName" Grid.Column="1" Grid.Row="1"/>
         <TextBlock x:Name="Manufacturer" Grid.Column="1" Grid.Row="2"/>
         <TextBlock x:Name="Colour" Grid.Column="1" Grid.Row="3"/>

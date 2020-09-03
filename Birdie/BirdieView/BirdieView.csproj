@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\BirdieBusiness\BirdieBusiness.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BirdieBusiness\BirdieBusiness.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
