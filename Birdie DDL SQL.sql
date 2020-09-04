@@ -55,3 +55,17 @@ INSERT INTO BasicColour VALUES ('Purple');
 INSERT INTO BasicColour VALUES ('Green');
 INSERT INTO BasicColour VALUES ('Brown');
 INSERT INTO BasicColour VALUES ('Pink');
+
+INSERT INTO OfficialColour VALUES ('Crimson', 3);
+INSERT INTO OfficialColour VALUES ('Black', 1);
+INSERT INTO OfficialColour VALUES ('Fuchsia', 10);
+INSERT INTO OfficialColour VALUES ('Dark Green', 8);
+
+
+INSERT INTO Ball VAlUES ('FunSports 4', 7, 6, 400, 450, 600, 400);
+INSERT INTO Ball VAlUES ('FunSports 3', 7, 8, 300, 300, 990, 375);
+INSERT INTO Ball VAlUES ('FunSports 2', 7, 9, 600, 550, 400, 425);
+INSERT INTO Ball VAlUES ('FunSports 1', 7, 10, 100, 300, 600, 400);
+
+INSERT INTO Manufacturer VALUES ('Deutchman');
+INSERT INTO Manufacturer VALUES ('Noppel');

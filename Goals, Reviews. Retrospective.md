@@ -40,7 +40,36 @@ Unforeseen delays in connecting the database led to delays in implementing the m
 
 # Sprint 2
 
+## Goals
+
 * Testing and Implementation of CRUD Operations
 * Create Wireframes
 * Create Basic UI
 * Allow users to select a ball from the database and display it's information in the UI.
+
+## Review
+
+* Lots of CRUD Operations were created
+  * Tests were not created for new 
+* Rudimentary ball selection and display created
+* List of Colours and manufacturers available to the UI
+
+Did not start:
+
+* Wireframes and UI design
+
+## Retrospective
+
+I had a breakthrough with connecting the database to the UI! But I need to find a way to display normalised data. The UI is still not designed, so I'll do that in the next sprint. However, I'm pleased that there is now some UI functionality.
+
+# Sprint 3: 
+
+## Goals:
+
+* Resolve issues with displaying normalised data
+* Finish and Test CRUD operations
+* Make Wireframe
+* Create window
+
+## Retro
+

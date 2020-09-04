@@ -3,30 +3,44 @@ using BirdieModels;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BirdieView.ViewModels
 {
     class ShellViewModel : Screen
     {
+        // listboxDBContext = RetrieveAll()
         CRUDOperations crud = new CRUDOperations();
+        public BindableCollection<Ball> Balls { get; set; }
+        public BindableCollection<BasicColour> BasicColours { get; set; }
+        public BindableCollection<Manufacturer> Manufacturers { get; set; }
+        public BindableCollection<OfficialColour> OfficialColours { get; set; }
 
-        Ball selectBall;
+        private Ball _selectedBall;
+        public Ball SelectedBall
+        {
+            get { return _selectedBall; }
+            set
+            {
+                _selectedBall = value;
+                NotifyOfPropertyChange(() => SelectedBall);
+            }
+        }
 
-        List<Ball> balls = crud.SelectAllBalls();
-
-        public string BallName { get; set; } = "Funsports 4";
-        public string Manufacturer { get; set; } = "3D";
-        public string Colour { get; set; } = "Red";
-        public int Bounce { get; set; } = 400;
-        public int Weight { get; set; } = 650;
-        public int Shore { get; set; } = 500;
-
+        public ShellViewModel()
+        {
+            OfficialColours = new BindableCollection<OfficialColour>(collection: crud.RetrieveOfficialCoulours());
+            Manufacturers = new BindableCollection<Manufacturer>(collection: crud.RetrieveManufacturers());
+            BasicColours = new BindableCollection<BasicColour>(collection: crud.RetrieveBasicCoulours());
+            Balls = new BindableCollection<Ball>(collection: crud.RetrieveBalls());
+        }
         public void AddBall()
         {
             // If the ball is already in the database, show a message
 
-            crud.AddBall("Funsports 4", 1, 2, 450, 500, 600, 400);
+            //crud.AddBall(BallName, Manufacturer, Colour, 450, 500, 600, 400);
         }
 
         public void AddManufacturer()

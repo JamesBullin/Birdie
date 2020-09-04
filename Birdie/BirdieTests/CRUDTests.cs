@@ -90,7 +90,7 @@ namespace NorthwindTests
         {
 			using (var db = new BirdieContext())
 			{
-				var balls = crud.SelectAllBalls();
+				var balls = crud.RetrieveBalls();
 
 				var query = db.Ball.ToList();
 

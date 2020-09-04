@@ -25,15 +25,49 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="AddBall" Content="Add Ball" Grid.Column="0" Grid.Row="0"/>
-        <Button x:Name="AddOfficialColour" Content="Add Official Colour" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="AddManufacturer" Content="Add Manufacturer" Grid.Column="0" Grid.Row="2"/>
+        <DataGrid x:Name="Balls" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="8"
+                  AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedBall}"
+                  CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False"
+                  CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ball Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Colour" Binding="{Binding Path=OfficialColourId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <TextBlock x:Name="BallName" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock x:Name="Manufacturer" Grid.Column="1" Grid.Row="2"/>
-        <TextBlock x:Name="Colour" Grid.Column="1" Grid.Row="3"/>
-        <TextBlock x:Name="Bounce" Grid.Column="1" Grid.Row="4"/>
-        <TextBlock x:Name="Weight" Grid.Column="1" Grid.Row="5"/>
-        <TextBlock x:Name="Shore" Grid.Column="1" Grid.Row="6"/>
+        <ComboBox ItemsSource="{Binding Manufacturers}" Grid.Column="4" Grid.Row="4">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox ItemsSource="{Binding BasicColours}" Grid.Column="4" Grid.Row="5">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox ItemsSource="{Binding OfficialColours}" Grid.Column="4" Grid.Row="6">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="AddBall" Content="Add Ball" Grid.Column="4" Grid.Row="0"/>
+        <Button x:Name="AddOfficialColour" Content="Add Official Colour" Grid.Column="4" Grid.Row="1"/>
+        <Button x:Name="AddManufacturer" Content="Add Manufacturer" Grid.Column="4" Grid.Row="2"/>
+
+        <TextBlock Text="{Binding Path=SelectedBall.Name}" Grid.Column="3" Grid.Row="1"/>
+        <TextBlock Text="{Binding Path=SelectedBall.ManufacturerId}" Grid.Column="3" Grid.Row="2"/>
+        <TextBlock Text="{Binding Path=SelectedBall.OfficialColourId}" Grid.Column="3" Grid.Row="3"/>
+        <TextBlock Text="{Binding Path=SelectedBall.BounceInMillimetres}" Grid.Column="3" Grid.Row="4"/>
+        <TextBlock Text="{Binding Path=SelectedBall.WeightInTenthsOfGram}" Grid.Column="3" Grid.Row="5"/>
+        <TextBlock Text="{Binding Path=SelectedBall.ShoreInTenthsOfDurometre}" Grid.Column="3" Grid.Row="6"/>
     </Grid>
 </Window>

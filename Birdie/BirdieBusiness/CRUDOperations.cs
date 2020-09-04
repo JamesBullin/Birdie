@@ -7,8 +7,8 @@ namespace BirdieBusiness
 {
     public class CRUDOperations
     {
-        public void AddBall(string name, int? manufacturerID = null,
-            int? officialColourID = null, int? bounceInMillimetres = null,
+        public void AddBall(string name, Manufacturer manufacturer = null,
+            OfficialColour officialColour = null, int? bounceInMillimetres = null,
             int? weightInTenthsOfGram = null, int? shoreInTenthsOfDurometre = null,
             int? SizeInMillimetres = null)
         {
@@ -17,8 +17,8 @@ namespace BirdieBusiness
                 var newBall = new Ball()
                 {
                     Name = name,
-                    ManufacturerId = manufacturerID,
-                    OfficialColourId = officialColourID,
+                    Manufacturer = manufacturer,
+                    OfficialColour = officialColour,
                     BounceInMillimetres = bounceInMillimetres,
                     WeightInTenthsOfGram = weightInTenthsOfGram,
                     ShoreInTenthsOfDurometre = shoreInTenthsOfDurometre,
@@ -43,7 +43,6 @@ namespace BirdieBusiness
                 db.SaveChanges();
             }
         }
-
         public void AddOfficialColour(string name, int basicColourID)
         {
             using (var db = new BirdieContext())
@@ -58,8 +57,37 @@ namespace BirdieBusiness
                 db.SaveChanges();
             }
         }
+        public IEnumerable<BasicColour> RetrieveBasicCoulours()
+        {
+            var output = new List<BasicColour>();
+            using (var db = new BirdieContext())
+            {
+                output = db.BasicColour.ToList();
+            }
 
-        public List<Ball> SelectAllBalls()
+            return output;
+        }
+        public IEnumerable<OfficialColour> RetrieveOfficialCoulours()
+        {
+            var output = new List<OfficialColour>();
+            using (var db = new BirdieContext())
+            {
+                output = db.OfficialColour.ToList();
+            }
+
+            return output;
+        }
+        public IEnumerable<Manufacturer> RetrieveManufacturers()
+        {
+            var output = new List<Manufacturer>();
+            using (var db = new BirdieContext())
+            {
+                output = db.Manufacturer.ToList();
+            }
+
+            return output;
+        }
+        public IEnumerable<Ball> RetrieveBalls()
         {
             var output = new List<Ball>();
 
@@ -70,6 +98,5 @@ namespace BirdieBusiness
 
             return output;
         }
-
     }
 }
