@@ -11,12 +11,45 @@ namespace BirdieView.ViewModels
 {
     class ShellViewModel : Screen
     {
-        // listboxDBContext = RetrieveAll()
         CRUDOperations crud = new CRUDOperations();
         public BindableCollection<Ball> Balls { get; set; }
+
+        private BindableCollection<Ball> _ballsShown;
+        public BindableCollection<Ball> BallsShown
+        {
+            get { return _ballsShown; }
+            set
+            {
+                _ballsShown = value;
+                NotifyOfPropertyChange(() => BallsShown);
+            }
+        }
+
         public BindableCollection<BasicColour> BasicColours { get; set; }
+
         public BindableCollection<Manufacturer> Manufacturers { get; set; }
+        private BindableCollection<Manufacturer> _manufacturersShown;
+        public BindableCollection<Manufacturer> ManufacturersShown
+        {
+            get { return _manufacturersShown; }
+            set
+            {
+                _manufacturersShown = value;
+                NotifyOfPropertyChange(() => ManufacturersShown);
+            }
+        }
+
         public BindableCollection<OfficialColour> OfficialColours { get; set; }
+        private BindableCollection<OfficialColour> _officialColoursShown;
+        public BindableCollection<OfficialColour> OfficialColoursShown
+        {
+            get { return _officialColoursShown; }
+            set
+            {
+                _officialColoursShown = value;
+                NotifyOfPropertyChange(() => OfficialColoursShown);
+            }
+        }
 
         private Ball _selectedBall;
         public Ball SelectedBall
@@ -31,16 +64,16 @@ namespace BirdieView.ViewModels
 
         public ShellViewModel()
         {
-            OfficialColours = new BindableCollection<OfficialColour>(collection: crud.RetrieveOfficialCoulours());
-            Manufacturers = new BindableCollection<Manufacturer>(collection: crud.RetrieveManufacturers());
+            OfficialColours = OfficialColoursShown =  new BindableCollection<OfficialColour>(collection: crud.RetrieveOfficialCoulours());
+            Manufacturers = ManufacturersShown = new BindableCollection<Manufacturer>(collection: crud.RetrieveManufacturers());
             BasicColours = new BindableCollection<BasicColour>(collection: crud.RetrieveBasicCoulours());
-            Balls = new BindableCollection<Ball>(collection: crud.RetrieveBalls());
+            Balls = BallsShown = new BindableCollection<Ball>(collection: crud.RetrieveBalls());
         }
         public void AddBall()
         {
             // If the ball is already in the database, show a message
 
-            //crud.AddBall(BallName, Manufacturer, Colour, 450, 500, 600, 400);
+            //crud.AddBall(SelectedBall.Name, Manufacturer, OfficialColour, 450, 500, 600, 400);
         }
 
         public void AddManufacturer()
@@ -52,5 +85,29 @@ namespace BirdieView.ViewModels
         {
             crud.AddOfficialColour("Crimson", 3);
         }
+        /*
+        private void SetOfficialColoursShown(BasicColour input)
+        {
+            BindableCollection<OfficialColour> output = new BindableCollection<OfficialColour>();
+
+            if (BasicColourQuery == null)
+            {
+                _officialColoursShown = OfficialColours;
+            }
+            else
+            {
+                foreach (var item in OfficialColours)
+                {
+                    if (item.BasicColour.Name == input.Name)
+                    {
+                        output.Add(item);
+                    }
+                }
+            }
+                
+            OfficialColoursShown = output;
+        }
+        */
+
     }
 }

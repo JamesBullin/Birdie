@@ -1,4 +1,5 @@
 ﻿using BirdieModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,7 +73,9 @@ namespace BirdieBusiness
             var output = new List<OfficialColour>();
             using (var db = new BirdieContext())
             {
-                output = db.OfficialColour.ToList();
+                output = db.OfficialColour
+                    .Include(oc => oc.BasicColour)
+                    .ToList();
             }
 
             return output;
@@ -93,7 +96,10 @@ namespace BirdieBusiness
 
             using (var db = new BirdieContext())
             {
-                output = db.Ball.ToList();
+                output = db.Ball
+                    .Include(b => b.OfficialColour)
+                    .Include(b => b.Manufacturer)
+                    .ToList();
             }
 
             return output;
