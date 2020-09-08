@@ -16,7 +16,7 @@ Minigolf Ball Collection Manager
 
 ## Database Schema
 
-![image-20200907233419830](C:\Users\James Bullin\AppData\Roaming\Typora\typora-user-images\image-20200907233419830.png)
+![image-20200907233419830](https://github.com/JamesBullin/Birdie/blob/master/BirdieDBSchema.png)
 
 Arrow indicates a many-to-one relationship between Ball and Colour.
 
