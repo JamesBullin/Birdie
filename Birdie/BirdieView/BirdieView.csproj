@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Caliburn.Micro" Version="3.2.0" />
     <PackageReference Include="Caliburn.Micro.Core" Version="3.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
@@ -16,11 +20,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BirdieBusiness\BirdieBusiness.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\BirdieBusiness\BirdieBusiness.csproj" />
+    <ProjectReference Include="..\BirdieModels\BirdieModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="background.jpg" />
   </ItemGroup>
 
 </Project>

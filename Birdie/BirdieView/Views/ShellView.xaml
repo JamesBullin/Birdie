@@ -5,132 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BirdieView.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
+        FontSize="16"
+        Title="ShellView" Height="520" Width="960">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/background.jpg" Stretch="UniformToFill" Opacity="0.6"/>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="0"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="ManufacturersShown" Grid.Row="2" Grid.Column="1"
-                  AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedManufacturer}"
-                  CanUserDeleteRows="True" CanUserAddRows="True" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Path=Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <!-- Data Grids -->
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="BasicColours" Grid.Row="2" Grid.Column="2"
-                  AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedBasicColour}"
+            <DataGrid x:Name="Colours" Grid.Column="0"
+                  AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedColour}"
                   CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Basic Colours" Binding="{Binding Path=Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                  CanUserResizeColumns="False" CanUserResizeRows="False" IsEnabled="{Binding ColourDataGridEnabled}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Colours" Width="*" Binding="{Binding Path=Name}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
-        <DataGrid x:Name="OfficialColoursShown" Grid.Row="2" Grid.Column="3"
-                  AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedOfficialColour}"
-                  CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Official Colours" Binding="{Binding Path=Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <DataGrid x:Name="BallsShown" Grid.Row="2" Grid.Column="4"  Grid.RowSpan="8"
+            <DataGrid x:Name="Balls" Grid.Column="1"
                   AlternatingRowBackground="LightBlue"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedBall}"
                   CanUserDeleteRows="False" CanUserAddRows="False" CanUserReorderColumns="False"
-                  CanUserResizeColumns="False" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Ball Name" Binding="{Binding Path=Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <!--
-        <ComboBox ItemsSource="{Binding Manufacturers}" Grid.Column="1" SelectedItem="{Binding ManufacturerQuery}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                  CanUserResizeColumns="False" CanUserResizeRows="False" IsEnabled="{Binding BallNameDataGridEnabled}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Minigolf Balls" Binding="{Binding Path=Name}" IsReadOnly="True" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
 
-            <ComboBox ItemsSource="{Binding BasicColours}" Grid.Column="2" SelectedItem="{Binding BasicColourQuery}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+        <!-- Selected Ball Display-->
+        <Grid Grid.Column="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
 
-            <ComboBox ItemsSource="{Binding OfficialColoursShown}" Grid.Column="3" SelectedItem="{Binding OfficialColourQuery}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBox x:Name="txtBallName" Grid.ColumnSpan="10" FontSize="20"
+                     Text="{Binding SelectedBall.Name}"
+                     IsEnabled="{Binding txtBallNameEnabled}"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"/>
 
-        <Button x:Name="Clear" Content="Clear" Grid.Column="5"/>
+            <TextBox Grid.Column="0" Grid.Row="1" IsEnabled="False"/>
+            <TextBlock Text="Colour:" Grid.Column="0" Grid.Row="1"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"/>
+            
+            <ComboBox ItemsSource="{Binding Colours}"
+                      SelectedItem="{Binding SelectedBall.Colour, Mode=TwoWay}" 
+                      IsEnabled="{Binding SelectedBallColourEnabled}"
+                      Grid.Column="1" Grid.Row="1"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"/>
+        </Grid>
         
-        -->
+        <!-- Control Buttons-->
 
-        <Grid Grid.Row="2" Grid.Column="5">
+        <Grid Grid.Column="1" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ShowAllBalls" Content="Show All Balls" Visibility="{Binding ShowAllBallsVisibility}"/>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <TextBlock Text="{Binding Path=SelectedBall.Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+            <Button x:Name="EditBall" Content="Edit Ball Details" Grid.Column="0" Grid.ColumnSpan="2" IsEnabled="{Binding EditButtonEnabled}" Visibility="{Binding EditButtonVisibility}"/>
+            <Button x:Name="ConfirmEdit" Content="Confirm Changes" Grid.Column="0" Grid.ColumnSpan="2" Visibility="{Binding ConfirmEditButtonVisibility}"/>
 
-            <TextBlock Text="Manufacturer" Grid.Column="0" Grid.Row="1"/>
-            <TextBlock Text="Official Colour" Grid.Column="0" Grid.Row="2"/>
-            <TextBlock Text="Bounce" Grid.Column="0" Grid.Row="3"/>
-            <TextBlock Text="Weight" Grid.Column="0" Grid.Row="4"/>
-            <TextBlock Text="Shore" Grid.Column="0" Grid.Row="5"/>
-            <TextBlock Text="Size" Grid.Column="0" Grid.Row="6"/>
+            <Button x:Name="AddNewBall" Content="Add New Ball" Grid.Column="2" Grid.ColumnSpan="2" IsEnabled="{Binding AddBallButtonEnabled}" Visibility="{Binding AddBallButtonVisibility}"/>
+            <Button x:Name="ConfirmAddBall" Content="Add to Database" Grid.Column="2" Grid.ColumnSpan="2" Visibility="{Binding ConfirmAddBallButtonVisibility}"/>
 
-            <TextBox Text="{Binding Path=SelectedBall.Manufacturer.Name}" Grid.Column="1" Grid.Row="1"/>
-            <TextBox Text="{Binding Path=SelectedBall.OfficialColour.Name}" Grid.Column="1" Grid.Row="2"/>
-            <TextBox Text="{Binding Path=SelectedBall.BounceInMillimetres}" Grid.Column="1" Grid.Row="3"/>
-            <TextBox Text="{Binding Path=SelectedBall.WeightInTenthsOfGram}" Grid.Column="1" Grid.Row="4"/>
-            <TextBox Text="{Binding Path=SelectedBall.ShoreInTenthsOfDurometre}" Grid.Column="1" Grid.Row="5"/>
-            <TextBox Text="{Binding Path=SelectedBall.SizeInMillimetres}" Grid.Column="1" Grid.Row="6"/>
+            <Button x:Name="DeleteBall" Content="Delete Ball" Grid.Column="4" Grid.ColumnSpan="2" IsEnabled="{Binding DeleteButtonEnabled}" Visibility="{Binding DeleteButtonBallVisibility}"/>
+            <Button x:Name="ConfirmDeleteBall" Content="Delete Ball" Grid.Column="4" Visibility="{Binding ConfirmDeleteBallButtonVisibility}"/>
+            <Button x:Name="CancelDeleteBall" Content="Cancel" Grid.Column="5" Visibility="{Binding CancelDeleteBallButtonVisibility}"/>
             
-            <Button x:Name="DeleteBall" Content="Delete Ball" Grid.Column="2" Grid.Row="7"/>
         </Grid>
 
+        
 
-<!--
-        <Button x:Name="AddBall" Content="Add Ball" Grid.Column="4" Grid.Row="0"/>
-        <Button x:Name="AddOfficialColour" Content="Add Official Colour" Grid.Column="4" Grid.Row="1"/>
-        <Button x:Name="AddManufacturer" Content="Add Manufacturer" Grid.Column="4" Grid.Row="2"/>
-
--->
     </Grid>
 </Window>

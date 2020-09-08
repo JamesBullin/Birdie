@@ -1,71 +1,49 @@
-﻿DROP DATABASE Birdie;
-CREATE DATABASE Birdie;
-USE Birdie;
+﻿DROP DATABASE BirdieDB;
+CREATE DATABASE BirdieDB;
+USE BirdieDB;
 -- Create Tables
 
 CREATE TABLE Ball
 (
 	ID INT NOT NULL IDENTITY PRIMARY KEY,
-	Name VARCHAR(50),
-	ManufacturerID INT,
-	OfficialColourID INT,
-	BounceInMillimetres INT,
-	WeightInTenthsOfGram INT,
-	ShoreInTenthsOfDurometre INT,
-	SizeInMillimetres INT,
+	Name VARCHAR(50) NOT NULL,
+	ColourID INT NOT NULL
 );
 
-CREATE TABLE Manufacturer
+CREATE TABLE Colour
 (
 	ID INT NOT NULL IDENTITY PRIMARY KEY,
-	Name VARCHAR(50)  NOT NULL
-);
-
-CREATE TABLE OfficialColour
-(
-	ID INT NOT NULL IDENTITY PRIMARY KEY,
-	Name VARCHAR(50)  NOT NULL,
-	BasicColourID INT  NOT NULL
-);
-
-CREATE TABLE BasicColour
-(
-	ID INT NOT NULL IDENTITY PRIMARY KEY,
-	Name VARCHAR(50)  NOT NULL
+	Name VARCHAR(50) NOT NULL
 );
 
 -- Foreign Keys
 
 ALTER TABLE Ball
-ADD FOREIGN KEY (ManufacturerID) REFERENCES Manufacturer(ID),
-FOREIGN KEY (OfficialColourID) REFERENCES OfficialColour(ID);
+ADD FOREIGN KEY (ColourID) REFERENCES Colour(ID);
 
-ALTER TABLE OfficialColour
-ADD FOREIGN KEY (BasicColourID) REFERENCES BasicColour(ID);
+-- Add Colours
 
--- Add BasicColours
+INSERT INTO Colour VALUES ('Black');
+INSERT INTO Colour VALUES ('White');
+INSERT INTO Colour VALUES ('Red');
+INSERT INTO Colour VALUES ('Blue');
+INSERT INTO Colour VALUES ('Yellow');
+INSERT INTO Colour VALUES ('Orange');
+INSERT INTO Colour VALUES ('Purple');
+INSERT INTO Colour VALUES ('Green');
+INSERT INTO Colour VALUES ('Brown');
+INSERT INTO Colour VALUES ('Pink');
 
-INSERT INTO BasicColour VALUES ('Black');
-INSERT INTO BasicColour VALUES ('White');
-INSERT INTO BasicColour VALUES ('Red');
-INSERT INTO BasicColour VALUES ('Blue');
-INSERT INTO BasicColour VALUES ('Yellow');
-INSERT INTO BasicColour VALUES ('Orange');
-INSERT INTO BasicColour VALUES ('Purple');
-INSERT INTO BasicColour VALUES ('Green');
-INSERT INTO BasicColour VALUES ('Brown');
-INSERT INTO BasicColour VALUES ('Pink');
+TRUNCATE TABLE Ball;
 
-INSERT INTO OfficialColour VALUES ('Crimson', 3);
-INSERT INTO OfficialColour VALUES ('Black', 1);
-INSERT INTO OfficialColour VALUES ('Fuchsia', 10);
-INSERT INTO OfficialColour VALUES ('Dark Green', 8);
+INSERT INTO Ball VAlUES ('FunSports 1', 8);
+INSERT INTO Ball VAlUES ('FunSports 2', 10);
+INSERT INTO Ball VAlUES ('FunSports 3', 1);
+INSERT INTO Ball VAlUES ('FunSports 4', 3);
+INSERT INTO Ball VAlUES ('FunSports 5', 8);
+INSERT INTO Ball VAlUES ('FunSports 6', 7);
+INSERT INTO Ball VAlUES ('FunSports 7', 5);
+INSERT INTO Ball VAlUES ('FunSports 8', 4);
 
 
-INSERT INTO Ball VAlUES ('FunSports 4', 7, 6, 400, 450, 600, 400);
-INSERT INTO Ball VAlUES ('FunSports 3', 7, 8, 300, 300, 990, 375);
-INSERT INTO Ball VAlUES ('FunSports 2', 7, 9, 600, 550, 400, 425);
-INSERT INTO Ball VAlUES ('FunSports 1', 7, 10, 100, 300, 600, 400);
 
-INSERT INTO Manufacturer VALUES ('Deutchman');
-INSERT INTO Manufacturer VALUES ('Noppel');

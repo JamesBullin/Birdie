@@ -3,18 +3,16 @@ using System.Collections.Generic;
 
 namespace BirdieModels
 {
-    public partial class OfficialColour
+    public partial class Colour
     {
-        public OfficialColour()
+        public Colour()
         {
             Ball = new HashSet<Ball>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public int BasicColourId { get; set; }
 
-        public virtual BasicColour BasicColour { get; set; }
         public virtual ICollection<Ball> Ball { get; set; }
     }
 }
