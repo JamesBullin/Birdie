@@ -18,7 +18,7 @@ Minigolf Ball Collection Manager
 
 ![image-20200907233419830](https://github.com/JamesBullin/Birdie/blob/master/BirdieDBSchema.png)
 
-Arrow indicates a many-to-one relationship between Ball and Colour.
+Arrow indicates a many-to-one relationship from Ball to Colour.
 
 # Sprint 1: Wednesday 2 Sep 2020
 
